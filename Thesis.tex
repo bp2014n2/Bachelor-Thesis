@@ -2,13 +2,13 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{makeidx} %Zur automatischen Indexerstellung
+\usepackage{makeidx}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{float}    % Figures direkt im Textfluss
-\usepackage{url}      % Korrekter Satz von URLs
-\usepackage[usenames, dvipsnames]{color}    % Verwendung von Farben
+\usepackage{float}
+\usepackage{url}
+\usepackage[usenames, dvipsnames]{color}
 \usepackage{xparse}
 \usepackage{multirow}
 \usepackage{longtable}
@@ -22,36 +22,38 @@
 \usepackage{setspace}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=black,filecolor=black,urlcolor=black,menucolor=black]{hyperref}
 \usepackage{pgfplots}
-% \usepackage{minted} %if you activate minted, you need to run 'pip install Pygments'
+\usepackage{titling}
+\usepackage{datetime}
+%\usepackage{minted} %if you activate minted, you need to run 'pip install Pygments'
 
-% \setminted{
-%     mathescape,
-%     linenos,
-%     numbersep=5pt,
-%     gobble=2,
-%     frame=lines,
-%     framesep=2mm,
-%     tabsize=4
-% }
+%\setminted{
+%	mathescape,
+%	linenos,
+%	numbersep=5pt,
+%	gobble=2,
+%	frame=lines,
+%	framesep=2mm,
+%	tabsize=4
+%}
 
 \bibliographystyle{babalpha}
+
+\graphicspath{ {images/} }
 
 \pagestyle{scrheadings}
 \clearscrheadings
 \ofoot{\pagemark}
 
-\newcommand{\mkdot}{\multicolumn{1}{@{}l@{}}{\dotfill}}
-
 \setcounter{tocdepth}{3}
 
 \definecolor{bggray}{gray}{.95}
 \definecolor{lightgray}{gray}{0.85}
-\newcommand{\todo}[1]{\textbf{\textcolor{red}{#1}}}
 
+\newcommand{\todo}[1]{\textbf{\textcolor{red}{#1}}}
 \newcommand{\rel}[1]{\textsc{#1}}
 \newcommand{\sauth}[1]{\marginpar{\hspace{0.25cm}\textit{\scriptsize #1}}}
+\newcommand{\mkdot}{\multicolumn{1}{@{}l@{}}{\dotfill}}
 
-%Seitenformat-Definitionen
 \topmargin0mm
 \textwidth152mm
 \textheight219mm
@@ -59,16 +61,21 @@
 \oddsidemargin7mm
 \footskip19mm
 \parindent=0in
-
-\makeindex % legt das Index-File an
-
-% Zeilenabstand
 \linespread{1.15}
+
+\newdateformat{usvardate}{\monthname[\THEMONTH] \ordinaldate{\THEDAY}, \THEYEAR}
+\newdate{submissiondate}{30}{06}{2015}
+
+\author{Author}
+\title{Title}
+
+\makeindex
 
 \begin{document}
 
-\input{chapters/01-titlepage}
-\input{chapters/02-abstract}
+\input{chapters/titlepage}
+\thispagestyle{empty}
+\input{chapters/abstract}
 \newpage
 \thispagestyle{empty}
 \tableofcontents
@@ -77,23 +84,21 @@
 \input{chapters/preface}
 \newpage
 
-\newpage
 \input{chapters/03-introduction}
 
 \newpage
 
 \begin{appendix}
- \input{chapters/appendix}
+	\input{chapters/appendix}
 \end{appendix}
-
-\addcontentsline{toc}{section}{References}
 
 \newpage
 
+\addcontentsline{toc}{section}{References}
 \bibliography{bibliography/references}
 
 \newpage
-
+\thispagestyle{empty}
 \input{chapters/declaration}
 
 \end{document}
