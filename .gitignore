@@ -1,0 +1,11 @@
+*.aux 
+*.idx 
+*.log 
+*.out 
+*.toc 
+*.blg 
+*.dvi
+*.bbl
+Thesis.pdf
+*.bcf
+*.xml
